@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for fichier in liste_fichiers:
         print(f" -> {str(fichier)}")
     print()
-    yesno = input("Lancer le ré-encodage ? (Non) : ")
+    yesno = input(f"Lancer le ré-encodage de {len(liste_fichiers)} fichier(s) ? (Non) : ")
     if yesno in ('y', 'Y', 'o', 'O', 'yes', 'Yes', 'oui', 'Oui'):
         a_reencoder = moving_file_to_reencode(repertoire, liste_fichiers)
         mp4_hd720_converter(a_reencoder, delete)
