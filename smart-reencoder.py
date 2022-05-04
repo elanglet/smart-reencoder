@@ -14,11 +14,14 @@ if __name__ == '__main__':
 
     liste_fichiers = detect_file_to_reencode(repertoire)
 
-    print("Fichiers à ré-encoder : ")
-    for fichier in liste_fichiers:
-        print(f" -> {str(fichier)}")
-    print()
-    yesno = input(f"Lancer le ré-encodage de {len(liste_fichiers)} fichier(s) ? (Non) : ")
-    if yesno in ('y', 'Y', 'o', 'O', 'yes', 'Yes', 'YES', 'oui', 'Oui', 'OUI'):
-        a_reencoder = moving_file_to_reencode(repertoire, liste_fichiers)
-        mp4_hd720_converter(a_reencoder, delete)
+    if(len(liste_fichiers) != 0):
+        print("Fichiers à ré-encoder : ")
+        for fichier in liste_fichiers:
+            print(f" -> {str(fichier)}")
+        print()
+        yesno = input(f"Lancer le ré-encodage de {len(liste_fichiers)} fichier(s) ? (Non) : ")
+        if yesno in ('y', 'Y', 'o', 'O', 'yes', 'Yes', 'YES', 'oui', 'Oui', 'OUI'):
+            a_reencoder = moving_file_to_reencode(repertoire, liste_fichiers)
+            mp4_hd720_converter(a_reencoder, delete)
+    else:
+        print("Aucun fichiers à ré-encoder.")
