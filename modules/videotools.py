@@ -10,7 +10,7 @@ import ffmpeg
 
 
 def mp4_hd720_converter(repertoire: Path, delete=False) -> None:
-    options = {'c:v': 'libx264', 'crf': '25', 'c:a': 'aac', 'q:a': 100, 's': 'hd720', 'loglevel': 'error'}
+    options = {'c:v': 'libx264', 'crf': '20', 'c:a': 'aac', 'q:a': 100, 's': 'hd720', 'loglevel': 'error'}
     repertoire = Path(repertoire)
     if not repertoire.is_dir():
         print("Erreur : Le répertoire contenant les vidéos à encoder est introuvable.")
