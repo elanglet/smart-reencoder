@@ -9,10 +9,14 @@ if __name__ == '__main__':
     repertoire = Path(sys.argv[1])
 
     delete = False
-    if len(sys.argv) == 3 and sys.argv[2] == '--delete':
-        delete = True
+    force = False
+    if len(sys.argv) >= 3:
+        if  '--delete' in sys.argv:
+            delete = True
+        if '--force' in sys.argv:
+            force = True
 
-    liste_fichiers = detect_file_to_reencode(repertoire)
+    liste_fichiers = detect_file_to_reencode(repertoire, force)
 
     if(len(liste_fichiers) != 0):
         print("Fichiers à ré-encoder : ")

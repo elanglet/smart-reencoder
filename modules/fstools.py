@@ -2,7 +2,7 @@ import ffmpeg
 from pathlib import Path
 
 
-def detect_file_to_reencode(repertoire: Path) -> Path:
+def detect_file_to_reencode(repertoire: Path, force: bool) -> Path:
     if repertoire.exists() and repertoire.is_dir():
         liste_fichiers = []
         for fichier in repertoire.glob('*.*'):
@@ -12,7 +12,7 @@ def detect_file_to_reencode(repertoire: Path) -> Path:
                     video_streams = [stream for stream in resultat['streams'] if stream['codec_type'] == 'video']
                     resolution = video_streams[0]['height']
                     codec = video_streams[0]['codec_name']
-                    if resolution != 720 or codec != 'h264':
+                    if resolution != 720 or codec != 'h264' or force:
                         liste_fichiers.append(fichier)
                 except Exception as e:
                     print(f"Skipping '{fichier}'")
