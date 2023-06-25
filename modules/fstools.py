@@ -18,7 +18,7 @@ def detect_file_to_reencode(repertoire: Path, force: bool) -> Path:
                         liste_fichiers.append(fichier)
                         
                 except Exception as e:
-                    print(f"Skipping '{fichier}'")
+                    print(f"Skipping '{fichier}'. Reason : {e}")
         return liste_fichiers
     else:
         raise Exception("Erreur sur le répertoire sélectionné : '{}'".format(repertoire.name))
