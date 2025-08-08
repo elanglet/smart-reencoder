@@ -14,7 +14,8 @@ def detect_file_to_reencode(repertoire: Path, force: bool) -> Path:
                     codec = video_streams[0]['codec_name']
                     if force:
                         liste_fichiers.append(fichier)
-                    elif resolution != 720 or codec != 'h264':
+                    # elif resolution != 720 or codec != 'h264':
+                    elif resolution != 540 or codec != 'h264':
                         liste_fichiers.append(fichier)
                         
                 except Exception as e:

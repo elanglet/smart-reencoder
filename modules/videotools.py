@@ -9,8 +9,10 @@ import ffmpeg
 # Vérifier la présence du dossier 'vids' au même emplacement que ce script
 
 
-def mp4_hd720_converter(repertoire: Path, delete=False) -> None:
-    options = {'c:v': 'libx264', 'crf': '20', 'c:a': 'aac', 'q:a': 100, 's': 'hd720', 'loglevel': 'error'}
+def mp4_converter(repertoire: Path, delete=False) -> None:
+    # options = {'c:v': 'libx264', 'crf': '20', 'c:a': 'aac', 'q:a': 100, 's': 'hd720', 'loglevel': 'error'}
+    options = {'c:v': 'libx264', 'crf': '20', 'c:a': 'aac', 'q:a': 100, 's': 'qhd', 'loglevel': 'error'} # qhd = 540
+    
     repertoire = Path(repertoire)
     if not repertoire.is_dir():
         print("Erreur : Le répertoire contenant les vidéos à encoder est introuvable.")
